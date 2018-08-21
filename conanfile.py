@@ -21,7 +21,6 @@ class GlmConan(ConanFile):
 
     def build(self):
         tools.get("https://download.qt.io/official_releases/jom/jom_1_1_2.zip")
-        os.rename("jom_1_1_2", "jom-{0}".format(self.version))
 
     def package(self):
         self.copy("*", dst="", keep_path=True)
@@ -33,4 +32,4 @@ class GlmConan(ConanFile):
 
     def package_info(self):
         self.output.info("Using jom %s" % self.version)
-        self.env_info.path.append(os.path.join(self.package_folder, "jom-{0}".format(self.version)))
+        self.env_info.path.append(self.package_folder)
