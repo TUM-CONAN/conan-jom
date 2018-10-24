@@ -12,15 +12,16 @@ class GlmConan(ConanFile):
     url = "https://gitlab.lan.local/conan/conan-jom"
     homepage = "https://wiki.qt.io/Jom"
     license = "LGPL"
-    build_policy = "missing"
-    settings = "os_build", "arch_build", "arch", "compiler"
+    settings = "os", "arch", "compiler"
 
     def configure(self):
-        if self.settings.os_build != "Windows":
-            raise Exception("Only windows supported for jom")
+        del self.settings.compiler.libcxx
 
     def build(self):
-        tools.get("https://download.qt.io/official_releases/jom/jom_1_1_2.zip")
+        if not tools.os_info.is_windows:
+            raise Exception("Only Windows is supported by jom")
+        else:
+            tools.get("https://download.qt.io/official_releases/jom/jom_1_1_2.zip")
 
     def package(self):
         self.copy("*", dst="", keep_path=True)
