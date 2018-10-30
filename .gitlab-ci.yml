@@ -1,8 +1,6 @@
 variables:
-  CONAN_REFERENCE: "jom/1.1.2"
-  CONAN_USERNAME: "sight"
-  CONAN_CHANNEL: "stable"
-  CONAN_ARCHS: x86_64
+  CONAN_COMMIT_REF_NAME: $CI_COMMIT_REF_NAME
+  CONAN_PROJECT_NAME: $CI_PROJECT_NAME
 
 stages:
   - build
