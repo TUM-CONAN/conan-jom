@@ -9,7 +9,7 @@ class GlmConan(ConanFile):
     name = "jom"
     version = "1.1.2"
     description = "jom is a clone of nmake to support the execution of multiple independent commands in parallel"
-    url = "https://gitlab.lan.local/conan/conan-jom"
+    url = "https://git.ircad.fr/conan/conan-jom"
     homepage = "https://wiki.qt.io/Jom"
     license = "LGPL"
     settings = "os", "arch", "compiler"
