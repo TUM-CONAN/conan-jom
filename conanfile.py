@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
-from conans import ConanFile
-from conans.client import tools
+from conans import ConanFile, tools
 
 class GlmConan(ConanFile):
     name = "jom"
