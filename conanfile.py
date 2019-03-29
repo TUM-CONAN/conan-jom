@@ -6,7 +6,9 @@ from conans import ConanFile, tools
 
 class GlmConan(ConanFile):
     name = "jom"
-    version = "1.1.2"
+    package_revision = "-r1"
+    upstream_version = "1.1.2"
+    version = "{0}{1}".format(upstream_version, package_revision)
     description = "jom is a clone of nmake to support the execution of multiple independent commands in parallel"
     url = "https://git.ircad.fr/conan/conan-jom"
     homepage = "https://wiki.qt.io/Jom"
@@ -31,5 +33,5 @@ class GlmConan(ConanFile):
         del self.info.settings.arch
 
     def package_info(self):
-        self.output.info("Using jom %s" % self.version)
+        self.output.info("Using jom %s" % self.upstream_version)
         self.env_info.path.append(self.package_folder)
