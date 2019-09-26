@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
 from conans import ConanFile, tools
 
-class GlmConan(ConanFile):
+
+class JomConan(ConanFile):
     name = "jom"
-    package_revision = "-r1"
-    upstream_version = "1.1.2"
+    package_revision = ""
+    upstream_version = "1.1.3"
     version = "{0}{1}".format(upstream_version, package_revision)
     description = "jom is a clone of nmake to support the execution of multiple independent commands in parallel"
     url = "https://git.ircad.fr/conan/conan-jom"
@@ -22,7 +22,7 @@ class GlmConan(ConanFile):
         if not tools.os_info.is_windows:
             raise Exception("Only Windows is supported by jom")
         else:
-            tools.get("https://download.qt.io/official_releases/jom/jom_1_1_2.zip")
+            tools.get("https://download.qt.io/official_releases/jom/jom_1_1_3.zip")
 
     def package(self):
         self.copy("*", dst="", keep_path=True)
